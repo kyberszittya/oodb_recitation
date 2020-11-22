@@ -1,0 +1,24 @@
+Name,Level,min_DPS,max_DPS,HP,speed
+Imp,1,1,3,5,6
+Pikeman,1,2,4,10,4
+Centaur,1,1,4,16,8
+Goblin,1,2,3,7,5
+Gnoll,1,1,5,8,5
+Lizardman,2,2,6,18,4
+Dwarf,2,3,5,26,3
+Gargolye,2,3,4,26,8
+Warg raider,2,3,4,24,7
+Golem,3,7,8,40,4
+Mage,3,7,10,30,5
+Gryphon,3,5,8,25,10
+Elven archer,3,5,8,20,8
+Roc,3,4,9,50,9
+Basilisk,3,5,8,40,5
+Crusader,4,12,17,70,5
+Wyvern,4,10,15,80,7
+Naga,4,16,16,80,5
+Knight,4,14,18,70,8
+Angel,5,30,30,200,12
+Black Dragon,5,25,35,230,11
+Titan,5,20,40,200,7
+Behemoth,5,30,40,170,8
