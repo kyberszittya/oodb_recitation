@@ -1,4 +1,4 @@
-# Gyakorlat 01 - Ismétlés
+# Gyakorlat 01 - Ismétlés, Osztályok alapfogalma
 
 ## Előzmények
 A standard kimenet (STDOUT) és bemenet (STDIN) kezelésére a következő könyvtárat kell használni:
@@ -317,7 +317,7 @@ Formálisan a C++ a sturktúrák és osztályok között az alapértelmezett hoz
 - Az osztály esetében az alapértelmezett hozzáférés privát.
 - A struktúra esetében az alapértelmezett hozzáférés publikus.
 
-Ezt a következő kódrészlet jól reprezentálja. Ha struktúraként 
+Ezt a következő kódrészlet jól reprezentálja. Ha struktúraként strukturáljuk a tagokat, akkor alapvetően pulbikus tagként tekint a fordító ezekre, osztály esetében privát tagként. 
 ```C++
 struct VehicleState
 {
@@ -337,7 +337,7 @@ Person p0;
 p0.name = "Gipsz Jakab"; // Fordítási hiba! A name attirbútum privát
 ```
 
-__Miért szükséges struktúra definiálása C++-ban?__ Ennek elsősorban kompatibilitási okai vannak, szeretnénk a C-vel a lehető leginkább kompatibilissá tenni. A C-ben megírt programok (pl. meghajtószoftverek) sok esetben egy az egyben felhasználhatóak egy C++ programban. Ugyanakkor lehetővé tesz egy hasznos struktúrálási lehetőséget is: egy osztályon belüli részek sturktúrálására lehet alkalmas. Például egy vezérlőszoftver esetében sok változót definiáltunk, amelyek valamilyen logikai szinten összetartoznak. A következő lehetséges:
+__Miért szükséges struktúra definiálása C++-ban?__ Ennek elsősorban történelmi okai vannak, szeretnénk a C-vel a lehető leginkább kompatibilissá tenni. A C-ben megírt programok (pl. meghajtószoftverek) sok esetben egy az egyben felhasználhatóak egy C++ programban. Ugyanakkor lehetővé tesz egy hasznos struktúrálási lehetőséget is: egy osztályon belüli részek sturktúrálására lehet alkalmas. Például egy vezérlőszoftver esetében sok változót definiáltunk, amelyek valamilyen logikai szinten összetartoznak. A következő lehetséges:
 ```C++
 struct VehicleState
 {
@@ -352,9 +352,12 @@ private:
 public:
     VehicleController(){}
 
-    void update_state(double lin_acc, double ang_acc)
+    void update_state(double lin_acc, double ang_acc, double dt)
     {
-                
+        state.linear_velocity += lin_acc * dt;
+        state.angular_velocity += ang_acc * dt;
     }
 };
 ```
+
+Ebben az esetben az osztály logikailag összeköthető részei egy struktúrába szervezhetőek, ami egy privát attribútumként használható az osztályban.
